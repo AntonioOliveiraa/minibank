@@ -2,8 +2,27 @@
 import ehUmCPF from "./valida-cpf.js";
 import ehMaiorDeIdade from "./valida-idade.js";
 
-// Selecionando todos os campos do formulário
+// Encapsulando os seletores
 const camposDoFormulario = document.querySelectorAll("[required]");
+const formulario = document.querySelector('[data-formulario]');
+
+// Adicionando evento de submit do formulário
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault(); // Previne o envio do formulário padrão
+
+    // Armazena todos os campos preenchidos
+    const listaRespostas = {
+        "nome": e.target.element["nome"].value,
+        "email": e.target.element["email"].value,
+        "rg": e.target.element["rg"].value,
+        "cpf": e.target.element["cpf"].value,
+        "aniversario": e.target.element["aniversario"].value,
+    }
+
+    // Salva os campos preenchidos na localStorage
+    localStorage.setItem("cadastro", JSON.stringify(listaRespostas));
+    window.location.href = './abrir-conta-form-2.html';
+})
 
 // Adicionando eventos de blur e invalid para cada campo do formulário
 camposDoFormulario.forEach((campo) => {
