@@ -4,7 +4,7 @@ import ehMaiorDeIdade from "./valida-idade.js";
 
 // Encapsulando os seletores
 const camposDoFormulario = document.querySelectorAll("[required]");
-const formulario = document.querySelector('[data-formulario]');
+const formulario = document.querySelector("[data-formulario]");
 
 // Adicionando evento de submit do formulário
 formulario.addEventListener("submit", (e) => {
