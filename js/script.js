@@ -8,20 +8,19 @@ const formulario = document.querySelector('[data-formulario]');
 
 // Adicionando evento de submit do formulário
 formulario.addEventListener("submit", (e) => {
-    e.preventDefault(); // Previne o envio do formulário padrão
-
-    // Armazena todos os campos preenchidos
+    e.preventDefault();
+    // Armazena os campos preenchidos do formulario
     const listaRespostas = {
-        "nome": e.target.element["nome"].value,
-        "email": e.target.element["email"].value,
-        "rg": e.target.element["rg"].value,
-        "cpf": e.target.element["cpf"].value,
-        "aniversario": e.target.element["aniversario"].value,
+        "nome": e.target.elements["nome"].value,
+        "email": e.target.elements["email"].value,
+        "rg": e.target.elements["rg"].value,
+        "cpf": e.target.elements["cpf"].value,
+        "aniversario": e.target.elements["aniversario"].value,
     }
 
-    // Salva os campos preenchidos na localStorage
+    // Salva os dados do formulário na localStorage
     localStorage.setItem("cadastro", JSON.stringify(listaRespostas));
-    window.location.href = './abrir-conta-form-2.html';
+    window.location.href = "./abrir-conta-form-2.html";
 })
 
 // Adicionando eventos de blur e invalid para cada campo do formulário
